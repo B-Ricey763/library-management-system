@@ -1,0 +1,42 @@
+
+# Maven build directory
+target/
+
+# Eclipse project files
+.classpath
+.project
+.settings/
+
+# IntelliJ IDEA project files
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Compiled bytecode
+*.class
+
+# Logs
+*.log
+log/
+
+# Dependency lock files
+dependency-reduced-pom.xml
+buildNumber.properties
+
+# User-specific files
+*~
+
+# Compiled files
+*.dll
+*.so
+*.dylib
+
+# MacOS-specific
+.DS_Store
+
+# Windows-specific
+Thumbs.db
+
+# Project save file
+items.json
