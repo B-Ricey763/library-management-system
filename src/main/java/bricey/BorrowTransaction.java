@@ -6,18 +6,14 @@ class BorrowTransaction {
 	private Borrowable item;
 	private String details;
 	private String time;
-	private Member member;
+	private String memberName;
 
-	public BorrowTransaction(Borrowable i, Member m, String d) {
+	public BorrowTransaction(Borrowable i, String m, String d) {
 		item = i;
 		details = d;
-		member = m;
+		memberName = m;
 
 		time = "";
-	}
-
-	public BorrowTransaction(Borrowable i, Member m) {
-		this(i, m, "No Details");
 	}
 
 	public Borrowable getItem() {
@@ -32,8 +28,8 @@ class BorrowTransaction {
 		return time;
 	}
 
-	public Member getMember() {
-		return member;
+	public String getMember() {
+		return memberName;
 	}
 }
 

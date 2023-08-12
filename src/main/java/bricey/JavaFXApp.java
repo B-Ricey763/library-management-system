@@ -6,17 +6,19 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-class JavaFXApp extends Application {
+public class JavaFXApp extends Application {
+    private Stage mainStage;
 
     @Override
     public void start(Stage stage) {
-        String javaVersion = System.getProperty("java.version");
-        String javafxVersion = System.getProperty("javafx.version");
-        Label l = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
-        Scene scene = new Scene(new StackPane(l), 640, 480);
-        stage.setScene(scene);
-        stage.show();
+        mainStage = stage;
+
+        switchScene(new LoginView(userName -> switchScene(new ItemView(userName))));
     }
 
+    private void switchScene(Viewable view) {
+        mainStage.setScene(view.getScene());
+        mainStage.show();
+    }
 
 }

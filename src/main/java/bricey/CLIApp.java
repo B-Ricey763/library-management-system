@@ -4,10 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Arrays;
+import java.util.Random;
 
 public class CLIApp {
 	
 	public void launch() {
+		Random random = new Random();
+
 		Class[] itemsToChoose = new Class[] {
 			Book.class
 		};
@@ -61,6 +64,8 @@ public class CLIApp {
 				}
 			}
 			item.setMembersByFields(fields);
+			// my sorry attempt at a UID
+			item.setId(random.nextInt(1000));
 			System.out.println("New Item created!: \n\n" + item.toString());
 			items.put(item.getId(), item);
 

@@ -8,7 +8,7 @@ import java.util.LinkedList;
  * as well as seeing the past borrows
  */
 public interface Borrowable {
-    public void checkOut(Member member);
-    public void returnItem(Member member);
+    public void checkOut(String member);
+    public void returnItem(String  member);
     public LinkedList<BorrowTransaction> getHistory();
 }

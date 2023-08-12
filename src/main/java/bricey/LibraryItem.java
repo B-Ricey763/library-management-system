@@ -8,7 +8,7 @@ abstract class LibraryItem implements Borrowable, Configurable, Serializable {
 	private int id;
 	private String name;
 	private String description;
-	private Member borrowingMember;
+	private String borrowingMemberName;
 	private LinkedList<BorrowTransaction> borrowingHistory;
 
 	public LibraryItem(int i, String n, String d) {
@@ -23,6 +23,10 @@ abstract class LibraryItem implements Borrowable, Configurable, Serializable {
 
 	public LibraryItem() {
 		this(-1, "", "");
+	}
+
+	public void setId(int i) {
+		id = i;
 	}
 
 	public int getId() {
@@ -45,19 +49,19 @@ abstract class LibraryItem implements Borrowable, Configurable, Serializable {
 		description = newDesc;
 	}
 
-	public Member getCurrentBorrowingMember() {
-		return borrowingMember;
+	public String getBorrowingMemberName() {
+		return borrowingMemberName;
 	}
 
 	public LinkedList<BorrowTransaction> getHistory() {
 		return borrowingHistory;
 	}
 
-	public void checkOut(Member member) {
-		borrowingMember = member;
+	public void checkOut(String name) {
+		borrowingMemberName = name;
 	}
 
-	public void returnItem(Member member) {
+	public void returnItem(String member) {
 		// TOOD: implement
 	}
 
