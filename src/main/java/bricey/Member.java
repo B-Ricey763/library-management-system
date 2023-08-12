@@ -7,6 +7,10 @@ class Member {
 		name = n;
 	}
 
+	public String getName() {
+		return name;
+	}
+
 	public void borrow(Borrowable item) {
 		item.checkOut(this);
 	}

@@ -1,0 +1,54 @@
+/*package bricey;
+
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import java.util.Map;
+
+class ItemView {
+	private Member member;
+		
+	public ItemView(Member m) {
+		member = m;
+	}
+
+	public Scene getScene() {
+		// Label memberLabel = new Label("Member: " + member.getName());
+
+		// Book list stuff
+        Map<Integer, LibraryItem> items = SerializationManager.loadItems();
+        ListView<LibraryItem> bookList = new ListView<LibraryItem>();
+        bookList.getItems().addAll(items.values());
+
+        bookList.setCellFactory(param -> {
+            return new ListCell<LibraryItem>() {
+                @Override
+                protected void updateItem(LibraryItem item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    if (empty || item == null) {
+                        setText(null);
+                        setGraphic(null);
+                    } else {
+                        setText(item.toString());
+
+                        Button button = new Button("Borrow");
+                        button.setOnAction(event -> {
+                        });
+                        setGraphic(button);
+                    }
+                }
+            };
+        });
+
+        VBox vbox = new VBox( bookList);
+        StackPane pane = new StackPane(vbox);
+
+        return new Scene(pane,  640, 480);
+	}
+
+	public Member getMember() {
+		return member;
+	}
+}
+*/

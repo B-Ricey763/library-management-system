@@ -14,11 +14,8 @@ public class CLIApp {
 
 		Scanner scanner = new Scanner(System.in);
 		Map<Integer, LibraryItem> items = SerializationManager.loadItems();
-		// For testing
-		Book newBook = new Book("Somethign", "Him", 1999);
-		items.put(newBook.getId(), newBook);
 
-		boolean isFinished = true;
+		boolean isFinished = false;
 		while (!isFinished) {
 			System.out.println("What do you want to make?");
 
@@ -32,20 +29,23 @@ public class CLIApp {
 
 			String name = scanner.nextLine();
 			Class itemChoosen = null;
+
 			LibraryItem item = null;
+			// include the package name in there
+			final String itemName = "bricey." + name.trim();
 			try {
-				// include the package name in there
-				final String itemName = "bricey." + name;
 				itemChoosen = Class.forName(itemName);
 				boolean validItem = Arrays.stream(itemsToChoose)
 					.anyMatch(c -> c.getName().equals(itemName));
 				if (validItem == true) {
+
 					item = (LibraryItem) itemChoosen.newInstance();
 				} else {
 					throw new Exception("Couldn't find your item!");
 				}
 			} catch (Exception e) {
-				System.err.println("Error processing your item choice!");
+				System.err.println("Error processing your item choice: " + itemName);
+				System.err.println(e.toString());
 				System.exit(1);
 			}
 

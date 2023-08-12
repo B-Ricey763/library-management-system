@@ -4,12 +4,6 @@ class Book extends LibraryItem {
 	private String author;
 	private int publishYear;
 
-	public Book(String n, String a, int py) {
-		super(1, n);
-		author = a;
-		publishYear = py;
-	}
-
 	public String getAuthor() {
 		return author;
 	}
