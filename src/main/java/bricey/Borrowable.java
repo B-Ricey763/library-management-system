@@ -9,6 +9,6 @@ import java.util.LinkedList;
  */
 public interface Borrowable {
     public void checkOut(String member);
-    public void returnItem(String  member);
+    public void returnItem();
     public LinkedList<BorrowTransaction> getHistory();
 }

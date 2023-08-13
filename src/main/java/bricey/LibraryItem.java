@@ -50,7 +50,7 @@ abstract class LibraryItem implements Borrowable, Configurable, Serializable {
 	}
 
 	public String getBorrowingMemberName() {
-		return borrowingMemberName;
+		return borrowingMemberName != null ? borrowingMemberName.trim() : null;
 	}
 
 	public LinkedList<BorrowTransaction> getHistory() {
@@ -61,8 +61,8 @@ abstract class LibraryItem implements Borrowable, Configurable, Serializable {
 		borrowingMemberName = name;
 	}
 
-	public void returnItem(String member) {
-		// TOOD: implement
+	public void returnItem() {
+		borrowingMemberName = null;
 	}
 
 	public ConfigurableField<?>[] getFields() {
